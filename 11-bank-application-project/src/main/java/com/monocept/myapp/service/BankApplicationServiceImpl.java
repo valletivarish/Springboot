@@ -1,7 +1,6 @@
 package com.monocept.myapp.service;
 
 import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -19,7 +18,6 @@ import com.monocept.myapp.dto.AccountResponseDto;
 import com.monocept.myapp.dto.CustomerRequestDto;
 import com.monocept.myapp.dto.CustomerResponseDto;
 import com.monocept.myapp.dto.ProfileRequestDto;
-import com.monocept.myapp.dto.ProfileResponseDto;
 import com.monocept.myapp.dto.TransactionResponseDto;
 import com.monocept.myapp.dto.UserResponseDto;
 import com.monocept.myapp.entity.Account;
@@ -230,14 +228,13 @@ public class BankApplicationServiceImpl implements BankApplicationService {
 		} else {
 			sort = sort.ascending();
 		}
-		fromDate = fromDate.truncatedTo(ChronoUnit.SECONDS);
-		toDate = toDate.truncatedTo(ChronoUnit.SECONDS);
+//		fromDate = fromDate.truncatedTo(ChronoUnit.SECONDS);
+//		toDate = toDate.truncatedTo(ChronoUnit.SECONDS);
 		PageRequest pageRequest = PageRequest.of(page, size, sort);
 		System.out.println("Page request: " + pageRequest);
 		Page<Transaction> pagedResponse = transactionRepository.findAllByTransactionDateBetween(fromDate, toDate,
 				pageRequest);
-		System.out.println(
-				"Fetched transactions: " + convertTransactionToTransactionResponseDTO(pagedResponse.getContent()));
+		
 		PagedResponse<TransactionResponseDto> response = new PagedResponse<>(
 				convertTransactionToTransactionResponseDTO(pagedResponse.getContent()), pagedResponse.getNumber(),
 				pagedResponse.getSize(), pagedResponse.getTotalElements(), pagedResponse.getTotalPages(),
@@ -311,7 +308,7 @@ public class BankApplicationServiceImpl implements BankApplicationService {
 //							"No account found with the account number " + accountNumber + " Please check again");
 //				}
 				PageRequest pageRequest = PageRequest.of(page, size, sort);
-				Page<Transaction> pagedResponse = transactionRepository.getPassbook(account, to,from,pageRequest);
+				Page<Transaction> pagedResponse = transactionRepository.getPassbook(account, from,to,pageRequest);
 
 				return new PagedResponse<TransactionResponseDto>(
 						convertTransactionToTransactionResponseDTO(pagedResponse.getContent(), accountNumber),
@@ -375,6 +372,34 @@ public class BankApplicationServiceImpl implements BankApplicationService {
 			return userDetails.getUsername();
 		}
 		return null;
+	}
+
+	@Override
+	public AccountResponseDto depositAmount(long accountNumber, double amount) {
+		User user = userRepository.findByEmail(getUsernameFromSecurityContext()).orElse(null);
+		List<Account> accounts = user.getCustomer().getAccounts();
+		Customer customer = user.getCustomer();
+		if(customer==null) {
+			throw new NoRecordFoundException("Customer not associated with the user");
+		}
+		for(Account account:accounts) {
+			if(account.getAccountNumber()==accountNumber) {
+				account.setBalance(account.getBalance()+amount);
+				accountRepository.save(account);
+				Double totalBalance=accountRepository.getTotalBalance(customer);
+				customer.setTotalBalance(totalBalance);
+				customerRespository.save(customer);
+				return convertAccountToAccountResponseDto(account);
+			}
+		}
+		throw new NoRecordFoundException("Please check account number properly");
+		
+	}
+
+	@Override
+	public List<AccountResponseDto> getAccounts() {
+		User user = userRepository.findByEmail(getUsernameFromSecurityContext()).orElse(null);
+		return convertAccountToAccountResponseDto(user.getCustomer().getAccounts());
 	}
 
 }

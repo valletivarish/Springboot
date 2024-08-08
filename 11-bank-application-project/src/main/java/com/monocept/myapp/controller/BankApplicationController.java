@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.monocept.myapp.dto.AccountResponseDto;
 import com.monocept.myapp.dto.CustomerRequestDto;
 import com.monocept.myapp.dto.CustomerResponseDto;
 import com.monocept.myapp.dto.ProfileRequestDto;
@@ -95,7 +96,7 @@ public class BankApplicationController {
 			@RequestParam(name = "direction", defaultValue = "asc") String direction) {
 		LocalDateTime fromDate = LocalDateTime.parse(from);
 		LocalDateTime toDate = LocalDateTime.parse(to);
-		return bankApplicationService.getPassbook(accountNumber,fromDate,toDate,page,size,sortBy,direction);
+		return bankApplicationService.getPassbook(accountNumber, fromDate, toDate, page, size, sortBy, direction);
 	}
 
 	@PutMapping("/customers/profile")
@@ -104,5 +105,16 @@ public class BankApplicationController {
 		return bankApplicationService.updateProfile(profileRequestDto);
 	}
 
-	
+	@PutMapping("/customers/transactions/{accountNumber}/deposit")
+	@PreAuthorize("hasRole('USER')")
+	public AccountResponseDto deposit(@PathVariable(name = "accountNumber") long accountNumber,
+			@RequestParam(name = "amount") double amount) {
+		return bankApplicationService.depositAmount(accountNumber, amount);
+	}
+	@GetMapping("/customers/accounts")
+	@PreAuthorize("hasRole('USER')")
+	public List<AccountResponseDto> getAllAccounts() {
+		return bankApplicationService.getAccounts();
+	}
+
 }
