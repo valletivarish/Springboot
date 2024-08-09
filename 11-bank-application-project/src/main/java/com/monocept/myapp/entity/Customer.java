@@ -12,6 +12,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.Builder.Default;
 import lombok.Data;
 
 @Data
@@ -37,7 +38,10 @@ public class Customer {
 	
 	@OneToOne(mappedBy = "customer")
 	private User user;
-
+	
+	
+	private boolean active=true;
+	
 	public void addAccount(Account account) {
 		accounts.add(account);
 	}

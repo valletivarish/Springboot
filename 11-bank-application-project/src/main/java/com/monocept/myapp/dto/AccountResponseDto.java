@@ -23,6 +23,7 @@ public class AccountResponseDto {
 	private List<TransactionResponseDto> sentTransactions;
 	
 	private List<TransactionResponseDto> receiverTransactions;
-
+	
+	@JsonInclude(value = Include.NON_DEFAULT)
 	private double balance;
 }

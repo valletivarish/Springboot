@@ -67,8 +67,12 @@ public class BankApplicationServiceImpl implements BankApplicationService {
 	private TransactionResponseDto convertTransactionToTransactionResponseDTO(Transaction transaction) {
 		TransactionResponseDto responseDto = new TransactionResponseDto();
 		responseDto.setId(transaction.getId());
-		responseDto.setSenderAccount(convertAccountToAccountResponseDto(transaction.getSenderAccount()));
-		responseDto.setReceiverAccount(convertAccountToAccountResponseDto(transaction.getReceiverAccount()));
+		if(transaction.getSenderAccount()!=null) {
+			responseDto.setSenderAccount(convertAccountTransactionToAccountResponseDto(transaction.getSenderAccount()));			
+		}
+		if(transaction.getReceiverAccount()!=null) {
+			responseDto.setReceiverAccount(convertAccountTransactionToAccountResponseDto(transaction.getReceiverAccount()));			
+		}
 		responseDto.setTransactionType(transaction.getTransactionType());
 		responseDto.setTransactionDate(transaction.getTransactionDate());
 		responseDto.setAmount(transaction.getAmount());
@@ -77,8 +81,17 @@ public class BankApplicationServiceImpl implements BankApplicationService {
 
 	private AccountResponseDto convertAccountToAccountResponseDto(Account account) {
 		AccountResponseDto accountResponseDTO = new AccountResponseDto();
-		accountResponseDTO.setAccountNumber(account.getAccountNumber());
-		accountResponseDTO.setBalance(account.getBalance());
+		if(account!=null) {
+			accountResponseDTO.setAccountNumber(account.getAccountNumber());
+			accountResponseDTO.setBalance(account.getBalance());
+		}
+		return accountResponseDTO;
+	}
+	private AccountResponseDto convertAccountTransactionToAccountResponseDto(Account account) {
+		AccountResponseDto accountResponseDTO = new AccountResponseDto();
+		if(account!=null) {
+			accountResponseDTO.setAccountNumber(account.getAccountNumber());
+		}
 		return accountResponseDTO;
 	}
 
@@ -326,11 +339,15 @@ public class BankApplicationServiceImpl implements BankApplicationService {
 		for (Transaction transaction : passbook) {
 			TransactionResponseDto responseDto = new TransactionResponseDto();
 			responseDto.setAmount(transaction.getAmount());
-			responseDto.setSenderAccount(convertAccountToAccountResponseDto(transaction.getSenderAccount()));
-			responseDto.setReceiverAccount(convertAccountToAccountResponseDto(transaction.getReceiverAccount()));
+			if(transaction.getReceiverAccount()!=null) {
+				responseDto.setReceiverAccount(convertAccountTransactionToAccountResponseDto(transaction.getReceiverAccount()));				
+			}
+			if(transaction.getSenderAccount()!=null) {
+				responseDto.setSenderAccount(convertAccountTransactionToAccountResponseDto(transaction.getSenderAccount()));				
+			}
 			responseDto.setId(transaction.getId());
 			responseDto.setTransactionDate(transaction.getTransactionDate());
-			if (transaction.getSenderAccount().getAccountNumber() == accountNumber) {
+			if (transaction.getSenderAccount()!=null && transaction.getSenderAccount().getAccountNumber() == accountNumber) {
 				responseDto.setTransactionType(TransactionType.Debited);
 			} else {
 				responseDto.setTransactionType(TransactionType.Credited);
@@ -389,6 +406,11 @@ public class BankApplicationServiceImpl implements BankApplicationService {
 				Double totalBalance=accountRepository.getTotalBalance(customer);
 				customer.setTotalBalance(totalBalance);
 				customerRespository.save(customer);
+				Transaction transaction=new Transaction();
+				transaction.setAmount(amount);
+				transaction.setReceiverAccount(account);
+				transaction.setTransactionType(TransactionType.Transfer);
+				transactionRepository.save(transaction);
 				return convertAccountToAccountResponseDto(account);
 			}
 		}
