@@ -1,5 +1,6 @@
 package com.monocept.myapp.controller;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -7,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+import com.itextpdf.text.DocumentException;
 import com.monocept.myapp.dto.AccountResponseDto;
 import com.monocept.myapp.dto.CustomerRequestDto;
 import com.monocept.myapp.dto.CustomerResponseDto;
@@ -26,8 +29,10 @@ import com.monocept.myapp.dto.UserResponseDto;
 import com.monocept.myapp.service.BankApplicationService;
 import com.monocept.myapp.util.PagedResponse;
 
+import jakarta.mail.MessagingException;
+
 @RestController
-@RequestMapping("/api/bank-application")
+@RequestMapping("/api/bank")
 @EnableMethodSecurity
 public class BankApplicationController {
 
@@ -96,7 +101,7 @@ public class BankApplicationController {
 			@RequestParam(name = "page", defaultValue = "0") int page,
 			@RequestParam(name = "size", defaultValue = "5") int size,
 			@RequestParam(name = "sortBy", defaultValue = "id") String sortBy,
-			@RequestParam(name = "direction", defaultValue = "asc") String direction) {
+			@RequestParam(name = "direction", defaultValue = "asc") String direction) throws DocumentException, IOException, MessagingException {
 		LocalDateTime fromDate = LocalDateTime.parse(from);
 		LocalDateTime toDate = LocalDateTime.parse(to);
 		return new ResponseEntity<PagedResponse<TransactionResponseDto>>(bankApplicationService.getPassbook(accountNumber, fromDate, toDate, page, size, sortBy, direction),HttpStatus.OK);
@@ -108,7 +113,7 @@ public class BankApplicationController {
 		return new ResponseEntity<String>(bankApplicationService.updateProfile(profileRequestDto),HttpStatus.OK);
 	}
 
-	@PutMapping("/customers/transactions/{accountNumber}/deposit")
+	@PutMapping("/customers/{accountNumber}/deposit")
 	@PreAuthorize("hasRole('USER')")
 	public ResponseEntity<AccountResponseDto> deposit(@PathVariable(name = "accountNumber") long accountNumber,
 			@RequestParam(name = "amount") double amount) {
@@ -119,5 +124,36 @@ public class BankApplicationController {
 	public ResponseEntity<List<AccountResponseDto>> getAllAccounts() {
 		return new ResponseEntity<List<AccountResponseDto>>(bankApplicationService.getAccounts(),HttpStatus.OK);
 	}
+	@DeleteMapping("admin/customers/{customerID}/deactivate")
+	@PreAuthorize("hasRole('ADMIN')")
+	public ResponseEntity<String> deleteCustomer(@PathVariable(name = "customerID")long customerID) {
+		return new ResponseEntity<String>(bankApplicationService.deleteCustomer(customerID),HttpStatus.NO_CONTENT);
+	}
+	
+	@PutMapping("admin/customers/{customerID}/activate")
+	@PreAuthorize("hasRole('ADMIN')")
+	public ResponseEntity<String> activateExistingCustomer(@PathVariable(name = "customerID")long customerID) {
+		return new ResponseEntity<String>(bankApplicationService.activateCustomer(customerID),HttpStatus.OK);
+	}
+	@DeleteMapping("admin/customers/accounts/{accountNumber}/deactivate")
+	@PreAuthorize("hasRole('ADMIN')")
+	public ResponseEntity<String> deleteAccount(@PathVariable(name = "accountNumber")long accountNumber) {
+		return new ResponseEntity<String>(bankApplicationService.deleteAccount(accountNumber),HttpStatus.NO_CONTENT);
+	}
+	@PutMapping("admin/customers/accounts/{accountNumber}/activate")
+	@PreAuthorize("hasRole('ADMIN')")
+	public ResponseEntity<String> activateExistingAccount(@PathVariable(name = "accountNumber")long accountNumber) {
+		return new ResponseEntity<String>(bankApplicationService.activateAccount(accountNumber),HttpStatus.OK);
+	}
+	
+	@GetMapping("customers/accounts/{accountNumber}/view-balance")
+	@PreAuthorize("hasRole('USER')")
+	public ResponseEntity<AccountResponseDto> viewBalance(@PathVariable(name = "accountNumber")long accountNumber) {
+		return new ResponseEntity<AccountResponseDto>(bankApplicationService.viewBalance(accountNumber),HttpStatus.OK);
+	}
+	
+	
+	
+	
 
 }
