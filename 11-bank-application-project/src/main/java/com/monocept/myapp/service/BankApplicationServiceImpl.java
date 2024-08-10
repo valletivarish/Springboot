@@ -73,46 +73,7 @@ public class BankApplicationServiceImpl implements BankApplicationService {
 		this.passwordEncoder = passwordEncoder;
 	}
 
-	private List<TransactionResponseDto> convertTransactionToTransactionResponseDTO(List<Transaction> transactions) {
-		List<TransactionResponseDto> transactionDtos = new ArrayList<TransactionResponseDto>();
-		for (Transaction transaction : transactions) {
-			transactionDtos.add(convertTransactionToTransactionResponseDTO(transaction));
-		}
-		return transactionDtos;
-	}
-
-	private TransactionResponseDto convertTransactionToTransactionResponseDTO(Transaction transaction) {
-		TransactionResponseDto responseDto = new TransactionResponseDto();
-		responseDto.setId(transaction.getId());
-		if (transaction.getSenderAccount() != null) {
-			responseDto.setSenderAccount(convertAccountTransactionToAccountResponseDto(transaction.getSenderAccount()));
-		}
-		if (transaction.getReceiverAccount() != null) {
-			responseDto.setReceiverAccount(
-					convertAccountTransactionToAccountResponseDto(transaction.getReceiverAccount()));
-		}
-		responseDto.setTransactionType(transaction.getTransactionType());
-		responseDto.setTransactionDate(transaction.getTransactionDate());
-		responseDto.setAmount(transaction.getAmount());
-		return responseDto;
-	}
-
-	private AccountResponseDto convertAccountToAccountResponseDto(Account account) {
-		AccountResponseDto accountResponseDTO = new AccountResponseDto();
-		if (account != null) {
-			accountResponseDTO.setAccountNumber(account.getAccountNumber());
-			accountResponseDTO.setBalance(account.getBalance());
-		}
-		return accountResponseDTO;
-	}
-
-	private AccountResponseDto convertAccountTransactionToAccountResponseDto(Account account) {
-		AccountResponseDto accountResponseDTO = new AccountResponseDto();
-		if (account != null) {
-			accountResponseDTO.setAccountNumber(account.getAccountNumber());
-		}
-		return accountResponseDTO;
-	}
+	
 
 	@Override
 	public UserResponseDto createCustomer(CustomerRequestDto customerRequestDto, long userID) {
@@ -141,31 +102,7 @@ public class BankApplicationServiceImpl implements BankApplicationService {
 		return convertUserToUserDto(userRepository.save(user));
 	}
 
-	private UserResponseDto convertUserToUserDto(User save) {
-		UserResponseDto responseDto = new UserResponseDto();
-		responseDto.setId(save.getId());
-		responseDto.setCustomerResponseDto(convertCustomerToCustomerResponseDto(save.getCustomer()));
-		responseDto.setEmail(save.getEmail());
-		return responseDto;
-	}
-
-	private CustomerResponseDto convertCustomerToCustomerResponseDto(Customer save) {
-		CustomerResponseDto customerResponseDto = new CustomerResponseDto();
-		customerResponseDto.setCustomer_id(save.getCustomer_id());
-		customerResponseDto.setFirstName(save.getFirstName());
-		customerResponseDto.setLastName(save.getLastName());
-		customerResponseDto.setTotalBalance(save.getTotalBalance());
-		return customerResponseDto;
-	}
-
-	private Customer convertCustomerRequestToCustomer(CustomerRequestDto customerRequestDto) {
-		Customer customer = new Customer();
-		customer.setFirstName(customerRequestDto.getFirstName());
-		customer.setLastName(customerRequestDto.getLastName());
-		customer.setTotalBalance(customerRequestDto.getTotalBalance());
-//		customer.setAccounts(convertAccountRequestDtoToAccount(customerRequestDto.getAccounts()));
-		return customer;
-	}
+	
 
 	@Override
 	public CustomerResponseDto createAccount(long customerID, int bankID) {
@@ -174,6 +111,9 @@ public class BankApplicationServiceImpl implements BankApplicationService {
 			throw new NoRecordFoundException("Customer with id " + customerID + " is not found");
 		}
 		Bank bank = bankRepository.findById(bankID).orElse(null);
+		if(!customer.isActive()) {
+			throw new NoRecordFoundException("Customer is not activated "+customer.getCustomer_id());
+		}
 		if (bank == null) {
 			throw new NoRecordFoundException("Bank with id " + bankID + " is not found");
 		}
@@ -206,43 +146,12 @@ public class BankApplicationServiceImpl implements BankApplicationService {
 		return convertCustomerAccountToCustomerResponseDto(customer);
 	}
 
-	private CustomerResponseDto convertCustomerAccountToCustomerResponseDto(Customer customer) {
-		CustomerResponseDto customerResponseDto = new CustomerResponseDto();
-		customerResponseDto.setFirstName(customer.getFirstName());
-		customerResponseDto.setLastName(customer.getLastName());
-		customerResponseDto.setCustomer_id(customer.getCustomer_id());
-		customerResponseDto.setAccounts(convertAccountToAccountResponseDto(customer.getAccounts()));
-		customerResponseDto.setTotalBalance(customer.getTotalBalance());
-
-		return customerResponseDto;
-	}
-
-	private List<AccountResponseDto> convertAccountToAccountResponseDto(List<Account> accounts) {
-		List<AccountResponseDto> accountResponseDTOs = new ArrayList<>();
-		for (Account account : accounts) {
-			accountResponseDTOs.add(convertAccountToAccountResponseDto(account));
-		}
-		return accountResponseDTOs;
-	}
-
 	@Override
 	public List<CustomerResponseDto> getAllCustomers() {
 		return convertCustomerToCustomerResponseDto(customerRespository.findAll());
 	}
 
-	private List<CustomerResponseDto> convertCustomerToCustomerResponseDto(List<Customer> customers) {
-		List<CustomerResponseDto> customerResponseDtos = new ArrayList<>();
-		for (Customer customer : customers) {
-			CustomerResponseDto customerResponseDto = new CustomerResponseDto();
-			customerResponseDto.setCustomer_id(customer.getCustomer_id());
-			customerResponseDto.setFirstName(customer.getFirstName());
-			customerResponseDto.setLastName(customer.getLastName());
-			customerResponseDto.setTotalBalance(customer.getTotalBalance());
-			customerResponseDto.setAccounts(convertAccountToAccountResponseDto(customer.getAccounts()));
-			customerResponseDtos.add(customerResponseDto);
-		}
-		return customerResponseDtos;
-	}
+	
 
 	@Override
 	public CustomerResponseDto getCustomerById(long customerid) {
@@ -262,8 +171,6 @@ public class BankApplicationServiceImpl implements BankApplicationService {
 		} else {
 			sort = sort.ascending();
 		}
-//		fromDate = fromDate.truncatedTo(ChronoUnit.SECONDS);
-//		toDate = toDate.truncatedTo(ChronoUnit.SECONDS);
 		PageRequest pageRequest = PageRequest.of(page, size, sort);
 		System.out.println("Page request: " + pageRequest);
 		Page<Transaction> pagedResponse = transactionRepository.findAllByTransactionDateBetween(fromDate, toDate,
@@ -280,11 +187,21 @@ public class BankApplicationServiceImpl implements BankApplicationService {
 	public TransactionResponseDto performTransaction(long senderAccountNumber, long receiverAccountNumber,
 			double amount) {
 		Optional<User> user = userRepository.findByEmail(getUsernameFromSecurityContext());
+		Customer customer = user.get().getCustomer();
 		List<Account> accounts = user.get().getCustomer().getAccounts();
+		if(!customer.isActive()) {
+			throw new NoRecordFoundException("Customer is not activated "+customer.getCustomer_id());
+		}
 		for (Account account : accounts) {
 			if (account.getAccountNumber() == senderAccountNumber) {
 				Account senderAccount = accountRepository.findById(senderAccountNumber).orElse(null);
 				Account receiverAccount = accountRepository.findById(receiverAccountNumber).orElse(null);
+				if(!senderAccount.isActive()) {
+					throw new NoRecordFoundException("Your account is inactive");
+				}
+				if(!receiverAccount.isActive()) {
+					throw new NoRecordFoundException("receiver account is inactive");
+				}
 				if (senderAccount == null || receiverAccount == null) {
 					throw new NoRecordFoundException("Please check the sender account number " + senderAccountNumber
 							+ " and receiver account number " + receiverAccountNumber);
@@ -323,39 +240,7 @@ public class BankApplicationServiceImpl implements BankApplicationService {
 
 	}
 
-	private void sendMailToTheUsers(User senderUser, User receiverUser, Customer senderCustomer,
-			long senderAccountNumber, Transaction transaction, Customer receiverCustomer, long receiverAccountNumber) {
-
-		String debitedsubject = "Notification: Your Account Has Been Debited at Spring Bank Application!";
-		String debitedBody = "Dear " + senderCustomer.getFirstName() + " " + senderCustomer.getLastName() + ",\n\n"
-				+ "We want to inform you that your account has been debited by an amount of " + transaction.getAmount()
-				+ " on " + transaction.getTransactionDate() + ".\n\n" + "Account Number: ######" + senderAccountNumber
-				+ "\n\n"
-				+ "If you did not authorize this transaction or have any concerns about it, please contact our support team immediately. We are here to assist you and ensure your account's security.\n\n"
-				+ "You can view the details of this transaction by logging into our application and checking your account transactions.\n\n"
-				+ "Thank you for banking with Spring Bank Application. We are dedicated to supporting your financial needs.\n\n"
-				+ "Best regards,\n" + "Customer Relations Team\n" + "Spring Bank Application";
-		MailStructure mailStructure = new MailStructure();
-		mailStructure.setToEmail(senderUser.getEmail());
-		mailStructure.setEmailBody(debitedBody);
-		mailStructure.setSubject(debitedsubject);
-		emailUtil.sendEmail(mailStructure);
-		String creditedsubject = "Notification: Your Account Has Been Credited at Spring Bank Application!";
-		String creditedBody = "Dear " + receiverCustomer.getFirstName() + " " + receiverCustomer.getLastName() + ",\n\n"
-				+ "We are pleased to notify you that your account has been credited with an amount of "
-				+ transaction.getAmount() + " on " + transaction.getTransactionDate() + ".\n\n"
-				+ "Account Number: ######" + receiverAccountNumber + "\n\n"
-				+ "You can view the details of this transaction by logging into our application and checking your account transactions.\n\n"
-				+ "If you have any questions or need further assistance, please contact our support team. We are here to ensure you have the best banking experience.\n\n"
-				+ "Thank you for banking with Spring Bank Application. We look forward to continuing to support your financial needs.\n\n"
-				+ "Best regards,\n" + "Customer Relations Team\n" + "Spring Bank Application";
-		mailStructure = new MailStructure();
-		mailStructure.setToEmail(receiverUser.getEmail());
-		mailStructure.setEmailBody(creditedBody);
-		mailStructure.setSubject(creditedsubject);
-		emailUtil.sendEmail(mailStructure);
-
-	}
+	
 
 	@Override
 	public PagedResponse<TransactionResponseDto> getPassbook(long accountNumber, LocalDateTime from, LocalDateTime to,
@@ -409,32 +294,7 @@ public class BankApplicationServiceImpl implements BankApplicationService {
 
 	}
 
-	private List<TransactionResponseDto> convertTransactionToTransactionResponseDTO(List<Transaction> passbook,
-			long accountNumber) {
-		List<TransactionResponseDto> list = new ArrayList<>();
-		for (Transaction transaction : passbook) {
-			TransactionResponseDto responseDto = new TransactionResponseDto();
-			responseDto.setAmount(transaction.getAmount());
-			if (transaction.getReceiverAccount() != null) {
-				responseDto.setReceiverAccount(
-						convertAccountTransactionToAccountResponseDto(transaction.getReceiverAccount()));
-			}
-			if (transaction.getSenderAccount() != null) {
-				responseDto.setSenderAccount(
-						convertAccountTransactionToAccountResponseDto(transaction.getSenderAccount()));
-			}
-			responseDto.setId(transaction.getId());
-			responseDto.setTransactionDate(transaction.getTransactionDate());
-			if (transaction.getSenderAccount() != null
-					&& transaction.getSenderAccount().getAccountNumber() == accountNumber) {
-				responseDto.setTransactionType(TransactionType.Debited);
-			} else {
-				responseDto.setTransactionType(TransactionType.Credited);
-			}
-			list.add(responseDto);
-		}
-		return list;
-	}
+	
 
 	@Override
 	public String updateProfile(ProfileRequestDto profileRequestDto) {
@@ -465,14 +325,7 @@ public class BankApplicationServiceImpl implements BankApplicationService {
 		return "user succesfully updated";
 	}
 
-	private String getUsernameFromSecurityContext() {
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		if (authentication != null && authentication.getPrincipal() instanceof UserDetails) {
-			UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-			return userDetails.getUsername();
-		}
-		return null;
-	}
+	
 
 	@Override
 	public AccountResponseDto depositAmount(long accountNumber, double amount) {
@@ -482,8 +335,11 @@ public class BankApplicationServiceImpl implements BankApplicationService {
 		if (customer == null) {
 			throw new NoRecordFoundException("Customer not associated with the user");
 		}
+		if(!customer.isActive()) {
+			throw new NoRecordFoundException("Customer is not activated "+customer.getCustomer_id());
+		}
 		for (Account account : accounts) {
-			if (account.getAccountNumber() == accountNumber) {
+			if (account.getAccountNumber() == accountNumber && isAccountActive(account)) {
 				account.setBalance(account.getBalance() + amount);
 				accountRepository.save(account);
 				Double totalBalance = accountRepository.getTotalBalance(customer);
@@ -575,6 +431,9 @@ public class BankApplicationServiceImpl implements BankApplicationService {
 		if (account == null) {
 			throw new NoRecordFoundException("Account not found with the account number " + accountNumber);
 		}
+		if(!account.getCustomer().isActive()) {
+			throw new NoRecordFoundException("Customer id is not activated "+account.getCustomer().getCustomer_id());
+		}
 		if (account.isActive()) {
 			throw new NoRecordFoundException("Account is already active");
 		}
@@ -598,9 +457,180 @@ public class BankApplicationServiceImpl implements BankApplicationService {
 
 	private boolean isAccountActive(Account account) {
 		if (!account.isActive()) {
-			return false;
+			throw new NoRecordFoundException("Account is not activated "+account.getAccountNumber());
 		}
 		return true;
+	}
+	
+	private String getUsernameFromSecurityContext() {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (authentication != null && authentication.getPrincipal() instanceof UserDetails) {
+			UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+			return userDetails.getUsername();
+		}
+		return null;
+	}
+	
+	private void sendMailToTheUsers(User senderUser, User receiverUser, Customer senderCustomer,
+			long senderAccountNumber, Transaction transaction, Customer receiverCustomer, long receiverAccountNumber) {
+
+		String debitedsubject = "Notification: Your Account Has Been Debited at Spring Bank Application!";
+		String debitedBody = "Dear " + senderCustomer.getFirstName() + " " + senderCustomer.getLastName() + ",\n\n"
+				+ "We want to inform you that your account has been debited by an amount of " + transaction.getAmount()
+				+ " on " + transaction.getTransactionDate() + ".\n\n" + "Account Number: ######" + senderAccountNumber
+				+ "\n\n"
+				+ "If you did not authorize this transaction or have any concerns about it, please contact our support team immediately. We are here to assist you and ensure your account's security.\n\n"
+				+ "You can view the details of this transaction by logging into our application and checking your account transactions.\n\n"
+				+ "Thank you for banking with Spring Bank Application. We are dedicated to supporting your financial needs.\n\n"
+				+ "Best regards,\n" + "Customer Relations Team\n" + "Spring Bank Application";
+		MailStructure mailStructure = new MailStructure();
+		mailStructure.setToEmail(senderUser.getEmail());
+		mailStructure.setEmailBody(debitedBody);
+		mailStructure.setSubject(debitedsubject);
+		emailUtil.sendEmail(mailStructure);
+		String creditedsubject = "Notification: Your Account Has Been Credited at Spring Bank Application!";
+		String creditedBody = "Dear " + receiverCustomer.getFirstName() + " " + receiverCustomer.getLastName() + ",\n\n"
+				+ "We are pleased to notify you that your account has been credited with an amount of "
+				+ transaction.getAmount() + " on " + transaction.getTransactionDate() + ".\n\n"
+				+ "Account Number: ######" + receiverAccountNumber + "\n\n"
+				+ "You can view the details of this transaction by logging into our application and checking your account transactions.\n\n"
+				+ "If you have any questions or need further assistance, please contact our support team. We are here to ensure you have the best banking experience.\n\n"
+				+ "Thank you for banking with Spring Bank Application. We look forward to continuing to support your financial needs.\n\n"
+				+ "Best regards,\n" + "Customer Relations Team\n" + "Spring Bank Application";
+		mailStructure = new MailStructure();
+		mailStructure.setToEmail(receiverUser.getEmail());
+		mailStructure.setEmailBody(creditedBody);
+		mailStructure.setSubject(creditedsubject);
+		emailUtil.sendEmail(mailStructure);
+
+	}
+	
+	private List<CustomerResponseDto> convertCustomerToCustomerResponseDto(List<Customer> customers) {
+		List<CustomerResponseDto> customerResponseDtos = new ArrayList<>();
+		for (Customer customer : customers) {
+			CustomerResponseDto customerResponseDto = new CustomerResponseDto();
+			customerResponseDto.setCustomer_id(customer.getCustomer_id());
+			customerResponseDto.setFirstName(customer.getFirstName());
+			customerResponseDto.setLastName(customer.getLastName());
+			customerResponseDto.setTotalBalance(customer.getTotalBalance());
+			customerResponseDto.setAccounts(convertAccountToAccountResponseDto(customer.getAccounts()));
+			customerResponseDtos.add(customerResponseDto);
+		}
+		return customerResponseDtos;
+	}
+	
+	private List<TransactionResponseDto> convertTransactionToTransactionResponseDTO(List<Transaction> transactions) {
+		List<TransactionResponseDto> transactionDtos = new ArrayList<TransactionResponseDto>();
+		for (Transaction transaction : transactions) {
+			transactionDtos.add(convertTransactionToTransactionResponseDTO(transaction));
+		}
+		return transactionDtos;
+	}
+
+	private TransactionResponseDto convertTransactionToTransactionResponseDTO(Transaction transaction) {
+		TransactionResponseDto responseDto = new TransactionResponseDto();
+		responseDto.setId(transaction.getId());
+		if (transaction.getSenderAccount() != null) {
+			responseDto.setSenderAccount(convertAccountTransactionToAccountResponseDto(transaction.getSenderAccount()));
+		}
+		if (transaction.getReceiverAccount() != null) {
+			responseDto.setReceiverAccount(
+					convertAccountTransactionToAccountResponseDto(transaction.getReceiverAccount()));
+		}
+		responseDto.setTransactionType(transaction.getTransactionType());
+		responseDto.setTransactionDate(transaction.getTransactionDate());
+		responseDto.setAmount(transaction.getAmount());
+		return responseDto;
+	}
+
+	private AccountResponseDto convertAccountToAccountResponseDto(Account account) {
+		AccountResponseDto accountResponseDTO = new AccountResponseDto();
+		if (account != null) {
+			accountResponseDTO.setAccountNumber(account.getAccountNumber());
+			accountResponseDTO.setBalance(account.getBalance());
+			accountResponseDTO.setActive(account.isActive());
+		}
+		return accountResponseDTO;
+	}
+
+	private AccountResponseDto convertAccountTransactionToAccountResponseDto(Account account) {
+		AccountResponseDto accountResponseDTO = new AccountResponseDto();
+		if (account != null) {
+			accountResponseDTO.setAccountNumber(account.getAccountNumber());
+		}
+		return accountResponseDTO;
+	}
+	
+	private UserResponseDto convertUserToUserDto(User save) {
+		UserResponseDto responseDto = new UserResponseDto();
+		responseDto.setId(save.getId());
+		responseDto.setCustomerResponseDto(convertCustomerToCustomerResponseDto(save.getCustomer()));
+		responseDto.setEmail(save.getEmail());
+		return responseDto;
+	}
+
+	private CustomerResponseDto convertCustomerToCustomerResponseDto(Customer save) {
+		CustomerResponseDto customerResponseDto = new CustomerResponseDto();
+		customerResponseDto.setCustomer_id(save.getCustomer_id());
+		customerResponseDto.setFirstName(save.getFirstName());
+		customerResponseDto.setLastName(save.getLastName());
+		customerResponseDto.setTotalBalance(save.getTotalBalance());
+		return customerResponseDto;
+	}
+
+	private Customer convertCustomerRequestToCustomer(CustomerRequestDto customerRequestDto) {
+		Customer customer = new Customer();
+		customer.setFirstName(customerRequestDto.getFirstName());
+		customer.setLastName(customerRequestDto.getLastName());
+		customer.setTotalBalance(customerRequestDto.getTotalBalance());
+//		customer.setAccounts(convertAccountRequestDtoToAccount(customerRequestDto.getAccounts()));
+		return customer;
+	}
+	
+	private List<TransactionResponseDto> convertTransactionToTransactionResponseDTO(List<Transaction> passbook,
+			long accountNumber) {
+		List<TransactionResponseDto> list = new ArrayList<>();
+		for (Transaction transaction : passbook) {
+			TransactionResponseDto responseDto = new TransactionResponseDto();
+			responseDto.setAmount(transaction.getAmount());
+			if (transaction.getReceiverAccount() != null) {
+				responseDto.setReceiverAccount(
+						convertAccountTransactionToAccountResponseDto(transaction.getReceiverAccount()));
+			}
+			if (transaction.getSenderAccount() != null) {
+				responseDto.setSenderAccount(
+						convertAccountTransactionToAccountResponseDto(transaction.getSenderAccount()));
+			}
+			responseDto.setId(transaction.getId());
+			responseDto.setTransactionDate(transaction.getTransactionDate());
+			if (transaction.getSenderAccount() != null
+					&& transaction.getSenderAccount().getAccountNumber() == accountNumber) {
+				responseDto.setTransactionType(TransactionType.Debited);
+			} else {
+				responseDto.setTransactionType(TransactionType.Credited);
+			}
+			list.add(responseDto);
+		}
+		return list;
+	}
+	
+	private CustomerResponseDto convertCustomerAccountToCustomerResponseDto(Customer customer) {
+		CustomerResponseDto customerResponseDto = new CustomerResponseDto();
+		customerResponseDto.setFirstName(customer.getFirstName());
+		customerResponseDto.setLastName(customer.getLastName());
+		customerResponseDto.setCustomer_id(customer.getCustomer_id());
+		customerResponseDto.setAccounts(convertAccountToAccountResponseDto(customer.getAccounts()));
+		customerResponseDto.setTotalBalance(customer.getTotalBalance());
+
+		return customerResponseDto;
+	}
+
+	private List<AccountResponseDto> convertAccountToAccountResponseDto(List<Account> accounts) {
+		List<AccountResponseDto> accountResponseDTOs = new ArrayList<>();
+		for (Account account : accounts) {
+			accountResponseDTOs.add(convertAccountToAccountResponseDto(account));
+		}
+		return accountResponseDTOs;
 	}
 
 }

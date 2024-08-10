@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
-public class StudentResponseExceptionHandler {
+public class BankResponseExceptionHandler {
 
 	
 	@ExceptionHandler
-	public ResponseEntity<StudentErrorResponse> handleException(BankApiException exc) {
-		StudentErrorResponse error = new StudentErrorResponse();
+	public ResponseEntity<BankErrorResponse> handleException(BankApiException exc) {
+		BankErrorResponse error = new BankErrorResponse();
 
 		error.setStatus(HttpStatus.BAD_REQUEST.value());
 		error.setMessage(exc.getMessage());
@@ -22,9 +22,9 @@ public class StudentResponseExceptionHandler {
 	}
 	
 	@ExceptionHandler(AccessDeniedException.class)
-	public ResponseEntity<StudentErrorResponse> handleException(AccessDeniedException exc) {
+	public ResponseEntity<BankErrorResponse> handleException(AccessDeniedException exc) {
 
-		StudentErrorResponse error = new StudentErrorResponse();
+		BankErrorResponse error = new BankErrorResponse();
 
 		error.setStatus(HttpStatus.UNAUTHORIZED.value());
 		error.setMessage(exc.getClass().getSimpleName());
@@ -34,9 +34,9 @@ public class StudentResponseExceptionHandler {
 	}
 	
 	@ExceptionHandler
-	public ResponseEntity<StudentErrorResponse> handleException(Exception exc) {
+	public ResponseEntity<BankErrorResponse> handleException(Exception exc) {
 
-		StudentErrorResponse error = new StudentErrorResponse();
+		BankErrorResponse error = new BankErrorResponse();
 		System.out.println("printing error");
 		error.setStatus(HttpStatus.BAD_REQUEST.value());
 		error.setMessage(exc.getClass().getSimpleName());
@@ -49,9 +49,9 @@ public class StudentResponseExceptionHandler {
 	
 
 	@ExceptionHandler
-	public ResponseEntity<StudentErrorResponse> handleException(NoRecordFoundException exc) {
+	public ResponseEntity<BankErrorResponse> handleException(NoRecordFoundException exc) {
 
-		StudentErrorResponse error = new StudentErrorResponse();
+		BankErrorResponse error = new BankErrorResponse();
 
 		error.setStatus(HttpStatus.NOT_FOUND.value());
 		error.setMessage(exc.getMessage());
