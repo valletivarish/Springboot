@@ -30,6 +30,7 @@ import com.monocept.myapp.service.BankApplicationService;
 import com.monocept.myapp.util.PagedResponse;
 
 import jakarta.mail.MessagingException;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/bank")
@@ -60,14 +61,14 @@ public class BankApplicationController {
 
 	@PostMapping("/admin/customers/{userID}")
 	@PreAuthorize("hasRole('ADMIN')")
-	public ResponseEntity<UserResponseDto> createCustomer(@RequestBody CustomerRequestDto customerRequestDto,
+	public ResponseEntity<UserResponseDto> createCustomer(@Valid @RequestBody CustomerRequestDto customerRequestDto,
 			@PathVariable(name = "userID") long userID) {
 		return new ResponseEntity<UserResponseDto>(bankApplicationService.createCustomer(customerRequestDto, userID),HttpStatus.CREATED);
 	}
 
 	@PostMapping("/admin/banks/{bankId}/customers/{customerId}/accounts")
 	@PreAuthorize("hasRole('ADMIN')")
-	public ResponseEntity<CustomerResponseDto> createAccount(@PathVariable(name = "customerId") long customerId,
+	public ResponseEntity<CustomerResponseDto> createAccount(@Valid @PathVariable(name = "customerId") long customerId,
 			@PathVariable(name = "bankId") int bankId) {
 		return new ResponseEntity<CustomerResponseDto>(bankApplicationService.createAccount(customerId, bankId),HttpStatus.CREATED);
 	}
@@ -109,7 +110,7 @@ public class BankApplicationController {
 
 	@PutMapping("/customers/profile")
 	@PreAuthorize("hasRole('USER')")
-	public ResponseEntity<String> updateProfile(@RequestBody ProfileRequestDto profileRequestDto) {
+	public ResponseEntity<String> updateProfile(@Valid @RequestBody ProfileRequestDto profileRequestDto) {
 		return new ResponseEntity<String>(bankApplicationService.updateProfile(profileRequestDto),HttpStatus.OK);
 	}
 
