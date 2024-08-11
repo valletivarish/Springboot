@@ -38,7 +38,7 @@ public class ContactApplicationController {
 		return new ResponseEntity<UserResponseDto>(contactApplicationService.createAndUpdateUser(userRequestDto),HttpStatus.CREATED);
 	}
 	@PutMapping("users")
-	public ResponseEntity<UserResponseDto> updateUser(@Valid @RequestBody UserRequestDto userRequestDto) {
+	public ResponseEntity<UserResponseDto> updateUser(@RequestBody UserRequestDto userRequestDto) {
 		
 		return new ResponseEntity<UserResponseDto>(contactApplicationService.createAndUpdateUser(userRequestDto),HttpStatus.OK);
 	}

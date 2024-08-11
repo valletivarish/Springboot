@@ -156,7 +156,9 @@ public class ContactApplicationServiceImpl implements ContactApplicationService 
 		user.setEmail(userRequestDto.getEmail());
 		user.setFirstName(userRequestDto.getFirstName());
 		user.setLastName(userRequestDto.getLastName());
-		user.setPassword(passwordEncoder.encode(userRequestDto.getPassword()));
+		if (userRequestDto.getPassword() != null && !userRequestDto.getPassword().isEmpty()) {
+	        user.setPassword(passwordEncoder.encode(userRequestDto.getPassword()));
+	    }
 		return user;
 	}
 
