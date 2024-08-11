@@ -24,6 +24,20 @@ public class ContactResponseExceptionHandler {
 
 		return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
 	}
+	@ExceptionHandler
+	public ResponseEntity<ContactErrorResponse> handleException(NoContactDetailRecordFoundException exc) {
+
+		// create a Student Error Message
+		ContactErrorResponse error = new ContactErrorResponse();
+
+		error.setStatus(HttpStatus.NOT_FOUND.value());
+		error.setMessage(exc.getMessage());
+		error.setTimeStamp(System.currentTimeMillis());
+
+		// return ResponseEntity
+
+		return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+	}
 	
 	@ExceptionHandler
 	public ResponseEntity<ContactErrorResponse> handleException(ContactApiException exc) {

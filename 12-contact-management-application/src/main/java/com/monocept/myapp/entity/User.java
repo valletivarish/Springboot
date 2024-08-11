@@ -38,6 +38,14 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "user")
     private List<Contact> contacts;
 
+	public void deleteContact(Contact contact) {
+		if(contacts.contains(contact)) {
+			
+			contact.setActive(false);
+			contacts.add(contact);
+		}
+	}
+
 	
     
     

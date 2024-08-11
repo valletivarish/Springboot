@@ -37,4 +37,18 @@ public class Contact {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
 	private User user;
+
+	public void addContactDetail(ContactDetail contactDetail) {
+
+		contactDetails.add(contactDetail);
+	}
+
+//	public void updateContactDetail(ContactDetail contactDetail) {
+//		for(ContactDetail contactdetail:contactDetails) {
+//			if(contactdetail.getContactDetailsId()==contactDetail.getContactDetailsId()) {
+//				contactdetail.setContactType(contactdetail.getContactType());
+//			}
+//		}
+//		
+//	}
 }
