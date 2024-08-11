@@ -43,7 +43,7 @@ public class BankApplicationController {
 		this.bankApplicationService = bankApplicationService;
 	}
 
-	@GetMapping("/admin/transactions")
+	@GetMapping("/admin/transactions") 
 	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<PagedResponse<TransactionResponseDto>> getAllTransactions(
 			@RequestParam(name = "page", defaultValue = "0") int page,
