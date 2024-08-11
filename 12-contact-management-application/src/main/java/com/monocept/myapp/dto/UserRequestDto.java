@@ -9,7 +9,7 @@ import lombok.Data;
 @Data
 public class UserRequestDto {
 
-    private long userId; // Assuming this is auto-generated or set by the system
+    private long userId;
 
     @NotBlank(message = "First name is required")
     private String firstName;
