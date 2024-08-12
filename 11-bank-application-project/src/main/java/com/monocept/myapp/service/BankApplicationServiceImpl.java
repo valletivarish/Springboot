@@ -393,6 +393,20 @@ public class BankApplicationServiceImpl implements BankApplicationService {
 		for (Account account : accounts) {
 			account.setActive(false);
 		}
+		String subject = "Notification: Your Account Has Been Deleted at Spring Bank Application";
+		String emailBody = "Dear " + customer.getFirstName() + " " + customer.getLastName() + ",\n\n"
+		        + "We regret to inform you that your account has been deleted from our system.\n\n"
+		        + "Please visit your nearest branch to withdraw any remaining funds in your account.\n\n"
+		        + "If you have any questions or need further assistance, please contact our support team. We are here to help you with any concerns you may have.\n\n"
+		        + "Thank you for banking with Spring Bank Application. We wish you the best in your future endeavors.\n\n"
+		        + "Best regards,\n" + "Customer Relations Team\n" + "Spring Bank Application";
+
+		MailStructure mailStructure = new MailStructure();
+		mailStructure.setToEmail(customer.getUser().getEmail());
+		mailStructure.setEmailBody(emailBody);
+		mailStructure.setSubject(subject);
+		emailUtil.sendEmail(mailStructure);
+
 		customerRespository.save(customer);
 		return "Customer deleted successfully";
 	}
@@ -408,6 +422,20 @@ public class BankApplicationServiceImpl implements BankApplicationService {
 		}
 		customer.setActive(true);
 		customerRespository.save(customer);
+		String subject = "Notification: Your Account Has Been Activated at Spring Bank Application";
+		String emailBody = "Dear " + customer.getFirstName() + " " + customer.getLastName() + ",\n\n"
+		        + "We are pleased to inform you that your account has been successfully activated.\n\n"
+		        + "You can now access all the features of our banking application and manage your finances with ease.\n\n"
+		        + "If you have any questions or need further assistance, please contact our support team. We are here to ensure you have the best banking experience.\n\n"
+		        + "Thank you for choosing Spring Bank Application. We look forward to serving your financial needs.\n\n"
+		        + "Best regards,\n" + "Customer Relations Team\n" + "Spring Bank Application";
+
+		MailStructure mailStructure = new MailStructure();
+		mailStructure.setToEmail(customer.getUser().getEmail());
+		mailStructure.setEmailBody(emailBody);
+		mailStructure.setSubject(subject);
+		emailUtil.sendEmail(mailStructure);
+
 		return "Customer activated successfully";
 	}
 
@@ -421,6 +449,20 @@ public class BankApplicationServiceImpl implements BankApplicationService {
 			throw new NoRecordFoundException("Account is already deleted");
 		}
 		account.setActive(false);
+		String subject = "Notification: Your Account Has Been Deleted at Spring Bank Application";
+		String emailBody = "Dear " + account.getCustomer().getFirstName() + " " + account.getCustomer().getLastName() + ",\n\n"
+		        + "We regret to inform you that your account ending in ######" + accountNumber + " has been deleted from our system.\n\n"
+		        + "Please visit your nearest branch to withdraw any remaining funds in this account.\n\n"
+		        + "If you have any questions or need further assistance, please contact our support team. We are here to help you with any concerns you may have.\n\n"
+		        + "Thank you for banking with Spring Bank Application. We wish you the best in your future endeavors.\n\n"
+		        + "Best regards,\n" + "Customer Relations Team\n" + "Spring Bank Application";
+
+		MailStructure mailStructure = new MailStructure();
+		mailStructure.setToEmail(account.getCustomer().getUser().getEmail());
+		mailStructure.setEmailBody(emailBody);
+		mailStructure.setSubject(subject);
+		emailUtil.sendEmail(mailStructure);
+
 		accountRepository.save(account);
 		return "Account deleted successfully";
 	}
@@ -438,6 +480,20 @@ public class BankApplicationServiceImpl implements BankApplicationService {
 			throw new NoRecordFoundException("Account is already active");
 		}
 		account.setActive(true);
+		String subject = "Notification: Your Account Has Been Activated at Spring Bank Application";
+		String emailBody = "Dear " + account.getCustomer().getFirstName() + " " + account.getCustomer().getLastName() + ",\n\n"
+		        + "We are pleased to inform you that your account ending in ######" + accountNumber + " has been successfully activated.\n\n"
+		        + "You can now access all the features of our banking application and manage your finances with ease.\n\n"
+		        + "If you have any questions or need further assistance, please contact our support team. We are here to ensure you have the best banking experience.\n\n"
+		        + "Thank you for choosing Spring Bank Application. We look forward to serving your financial needs.\n\n"
+		        + "Best regards,\n" + "Customer Relations Team\n" + "Spring Bank Application";
+
+		MailStructure mailStructure = new MailStructure();
+		mailStructure.setToEmail(account.getCustomer().getUser().getEmail());
+		mailStructure.setEmailBody(emailBody);
+		mailStructure.setSubject(subject);
+		emailUtil.sendEmail(mailStructure);
+
 		accountRepository.save(account);
 		return "Account activated successfully";
 	}

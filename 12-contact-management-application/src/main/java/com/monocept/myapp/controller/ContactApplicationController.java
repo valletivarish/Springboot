@@ -27,8 +27,8 @@ import com.monocept.myapp.service.ContactApplicationService;
 
 import jakarta.validation.Valid;
 
-@RestController
-@RequestMapping("api/")
+//@RestController
+//@RequestMapping("api/")
 public class ContactApplicationController {
 	@Autowired
 	private ContactApplicationService contactApplicationService;
