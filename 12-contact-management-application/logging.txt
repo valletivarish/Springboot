@@ -28598,3 +28598,1500 @@ com.monocept.myapp.controller.ContactApplicationController#deleteContact(long) m
 2024-08-12 16:51:56 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2024-08-12 16:51:56 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
 2024-08-12 16:51:57 INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 241 ms
+2024-08-12 18:41:02 INFO  com.monocept.myapp.Application - Starting Application using Java 21.0.3 with PID 5564 (D:\spring\12-contact-management-application\target\classes started by varis in D:\spring\12-contact-management-application)
+2024-08-12 18:41:02 DEBUG com.monocept.myapp.Application - Running with Spring Boot v3.3.2, Spring v6.1.11
+2024-08-12 18:41:02 INFO  com.monocept.myapp.Application - No active profile set, falling back to 1 default profile: "default"
+2024-08-12 18:41:02 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-08-12 18:41:02 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-08-12 18:41:03 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-12 18:41:04 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 80 ms. Found 4 JPA repository interfaces.
+2024-08-12 18:41:05 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-08-12 18:41:05 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-08-12 18:41:05 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-12 18:41:05 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-08-12 18:41:05 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2800 ms
+2024-08-12 18:41:05 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-12 18:41:05 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-08-12 18:41:05 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-08-12 18:41:06 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-12 18:41:06 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-08-12 18:41:07 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4a89553c
+2024-08-12 18:41:07 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-08-12 18:41:08 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-12 18:41:08 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-12 18:41:09 DEBUG c.m.m.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2024-08-12 18:41:09 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2024-08-12 18:41:09 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-12 18:41:10 WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui/**'], Ant [pattern='/swagger-ui/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-08-12 18:41:10 WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/v3/api-docs/**'], Ant [pattern='/v3/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-08-12 18:41:10 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-08-12 18:41:10 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-08-12 18:41:10 INFO  com.monocept.myapp.Application - Started Application in 9.055 seconds (process running for 10.231)
+2024-08-12 18:41:16 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-12 18:41:16 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-08-12 18:41:16 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-08-12 18:41:18 INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 818 ms
+2024-08-12 18:43:16 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-08-12 18:43:16 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-12 18:43:16 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-08-12 18:43:16 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-08-12 18:43:16 INFO  com.monocept.myapp.Application - Starting Application using Java 21.0.3 with PID 5564 (D:\spring\12-contact-management-application\target\classes started by varis in D:\spring\12-contact-management-application)
+2024-08-12 18:43:16 DEBUG com.monocept.myapp.Application - Running with Spring Boot v3.3.2, Spring v6.1.11
+2024-08-12 18:43:16 INFO  com.monocept.myapp.Application - No active profile set, falling back to 1 default profile: "default"
+2024-08-12 18:43:17 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-12 18:43:17 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23 ms. Found 4 JPA repository interfaces.
+2024-08-12 18:43:17 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-08-12 18:43:17 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-08-12 18:43:17 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-12 18:43:17 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-08-12 18:43:17 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 374 ms
+2024-08-12 18:43:17 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-12 18:43:17 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-08-12 18:43:17 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-12 18:43:17 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2024-08-12 18:43:17 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@492c2703
+2024-08-12 18:43:17 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2024-08-12 18:43:17 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-12 18:43:17 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-12 18:43:17 DEBUG c.m.m.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2024-08-12 18:43:17 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2024-08-12 18:43:17 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-12 18:43:17 WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui/**'], Ant [pattern='/swagger-ui/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-08-12 18:43:17 WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/v3/api-docs/**'], Ant [pattern='/v3/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-08-12 18:43:17 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-08-12 18:43:17 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-08-12 18:43:17 INFO  com.monocept.myapp.Application - Started Application in 0.935 seconds (process running for 137.063)
+2024-08-12 18:43:17 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-08-12 18:43:31 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-08-12 18:43:31 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-12 18:43:31 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2024-08-12 18:43:31 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2024-08-12 18:43:31 INFO  com.monocept.myapp.Application - Starting Application using Java 21.0.3 with PID 5564 (D:\spring\12-contact-management-application\target\classes started by varis in D:\spring\12-contact-management-application)
+2024-08-12 18:43:31 DEBUG com.monocept.myapp.Application - Running with Spring Boot v3.3.2, Spring v6.1.11
+2024-08-12 18:43:31 INFO  com.monocept.myapp.Application - No active profile set, falling back to 1 default profile: "default"
+2024-08-12 18:43:31 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-12 18:43:31 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 4 JPA repository interfaces.
+2024-08-12 18:43:31 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-08-12 18:43:31 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-08-12 18:43:31 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-12 18:43:31 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-08-12 18:43:31 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 302 ms
+2024-08-12 18:43:31 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-12 18:43:31 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-08-12 18:43:31 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-12 18:43:31 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2024-08-12 18:43:31 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6064a0dd
+2024-08-12 18:43:31 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2024-08-12 18:43:32 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-12 18:43:32 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-12 18:43:32 DEBUG c.m.m.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2024-08-12 18:43:32 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2024-08-12 18:43:32 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-12 18:43:32 WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui/**'], Ant [pattern='/swagger-ui/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-08-12 18:43:32 WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/v3/api-docs/**'], Ant [pattern='/v3/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-08-12 18:43:32 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-08-12 18:43:32 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-08-12 18:43:32 INFO  com.monocept.myapp.Application - Started Application in 1.416 seconds (process running for 152.261)
+2024-08-12 18:43:32 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-08-12 18:43:33 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-12 18:43:33 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-08-12 18:43:33 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-08-12 18:43:33 INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 333 ms
+2024-08-12 18:46:00 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-08-12 18:46:00 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-12 18:46:00 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2024-08-12 18:46:00 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+2024-08-12 18:46:00 INFO  com.monocept.myapp.Application - Starting Application using Java 21.0.3 with PID 5564 (D:\spring\12-contact-management-application\target\classes started by varis in D:\spring\12-contact-management-application)
+2024-08-12 18:46:00 DEBUG com.monocept.myapp.Application - Running with Spring Boot v3.3.2, Spring v6.1.11
+2024-08-12 18:46:00 INFO  com.monocept.myapp.Application - No active profile set, falling back to 1 default profile: "default"
+2024-08-12 18:46:00 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-12 18:46:00 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 27 ms. Found 4 JPA repository interfaces.
+2024-08-12 18:46:00 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-08-12 18:46:00 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-08-12 18:46:00 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-12 18:46:00 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-08-12 18:46:00 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 416 ms
+2024-08-12 18:46:00 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-12 18:46:00 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-08-12 18:46:00 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-12 18:46:00 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
+2024-08-12 18:46:00 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6ea91eb2
+2024-08-12 18:46:00 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
+2024-08-12 18:46:00 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-12 18:46:00 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-12 18:46:00 DEBUG c.m.m.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2024-08-12 18:46:00 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2024-08-12 18:46:01 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-12 18:46:01 WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui/**'], Ant [pattern='/swagger-ui/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-08-12 18:46:01 WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/v3/api-docs/**'], Ant [pattern='/v3/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-08-12 18:46:01 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-08-12 18:46:01 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-08-12 18:46:01 INFO  com.monocept.myapp.Application - Started Application in 1.062 seconds (process running for 300.635)
+2024-08-12 18:46:01 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-08-12 18:46:02 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-12 18:46:02 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-08-12 18:46:02 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-08-12 18:46:03 INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 268 ms
+2024-08-12 18:46:50 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-08-12 18:46:50 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-12 18:46:50 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown initiated...
+2024-08-12 18:46:50 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown completed.
+2024-08-12 18:46:50 INFO  com.monocept.myapp.Application - Starting Application using Java 21.0.3 with PID 5564 (D:\spring\12-contact-management-application\target\classes started by varis in D:\spring\12-contact-management-application)
+2024-08-12 18:46:50 DEBUG com.monocept.myapp.Application - Running with Spring Boot v3.3.2, Spring v6.1.11
+2024-08-12 18:46:50 INFO  com.monocept.myapp.Application - No active profile set, falling back to 1 default profile: "default"
+2024-08-12 18:46:51 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-12 18:46:51 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 15 ms. Found 4 JPA repository interfaces.
+2024-08-12 18:46:51 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-08-12 18:46:51 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-08-12 18:46:51 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-12 18:46:51 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-08-12 18:46:51 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 365 ms
+2024-08-12 18:46:51 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-12 18:46:51 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-08-12 18:46:51 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-12 18:46:51 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Starting...
+2024-08-12 18:46:51 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@290175be
+2024-08-12 18:46:51 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Start completed.
+2024-08-12 18:46:51 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-12 18:46:51 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-12 18:46:51 DEBUG c.m.m.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2024-08-12 18:46:51 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2024-08-12 18:46:51 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-12 18:46:51 WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui/**'], Ant [pattern='/swagger-ui/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-08-12 18:46:51 WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/v3/api-docs/**'], Ant [pattern='/v3/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-08-12 18:46:51 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-08-12 18:46:51 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-08-12 18:46:51 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-12 18:46:51 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-08-12 18:46:51 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-08-12 18:46:51 INFO  com.monocept.myapp.Application - Started Application in 1.027 seconds (process running for 351.238)
+2024-08-12 18:46:51 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-08-12 18:46:52 INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 218 ms
+2024-08-12 18:48:06 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2024-08-12 18:48:06 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-12 18:48:06 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown initiated...
+2024-08-12 18:48:06 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown completed.
+2024-08-12 18:48:06 INFO  com.monocept.myapp.Application - Starting Application using Java 21.0.3 with PID 5564 (D:\spring\12-contact-management-application\target\classes started by varis in D:\spring\12-contact-management-application)
+2024-08-12 18:48:06 DEBUG com.monocept.myapp.Application - Running with Spring Boot v3.3.2, Spring v6.1.11
+2024-08-12 18:48:06 INFO  com.monocept.myapp.Application - No active profile set, falling back to 1 default profile: "default"
+2024-08-12 18:48:07 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-12 18:48:07 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 30 ms. Found 4 JPA repository interfaces.
+2024-08-12 18:48:07 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-08-12 18:48:07 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-08-12 18:48:07 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-12 18:48:07 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-08-12 18:48:07 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 289 ms
+2024-08-12 18:48:07 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-12 18:48:07 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-08-12 18:48:07 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-12 18:48:07 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Starting...
+2024-08-12 18:48:07 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-6 - Added connection com.mysql.cj.jdbc.ConnectionImpl@22ddd552
+2024-08-12 18:48:07 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Start completed.
+2024-08-12 18:48:07 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-12 18:48:07 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-12 18:48:07 DEBUG c.m.m.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2024-08-12 18:48:07 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2024-08-12 18:48:07 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-12 18:48:07 WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui/**'], Ant [pattern='/swagger-ui/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-08-12 18:48:07 WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/v3/api-docs/**'], Ant [pattern='/v3/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-08-12 18:48:07 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-08-12 18:48:07 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-08-12 18:48:07 INFO  com.monocept.myapp.Application - Started Application in 0.936 seconds (process running for 427.119)
+2024-08-12 18:48:07 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-08-12 18:48:11 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-12 18:48:11 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-08-12 18:48:11 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-08-12 18:48:12 INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 387 ms
+2024-08-12 18:52:27 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-08-12 18:52:27 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-12 18:52:27 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Shutdown initiated...
+2024-08-12 18:52:27 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Shutdown completed.
+2024-08-12 18:52:27 INFO  com.monocept.myapp.Application - Starting Application using Java 21.0.3 with PID 5564 (D:\spring\12-contact-management-application\target\classes started by varis in D:\spring\12-contact-management-application)
+2024-08-12 18:52:27 DEBUG com.monocept.myapp.Application - Running with Spring Boot v3.3.2, Spring v6.1.11
+2024-08-12 18:52:27 INFO  com.monocept.myapp.Application - No active profile set, falling back to 1 default profile: "default"
+2024-08-12 18:52:27 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-12 18:52:27 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11 ms. Found 4 JPA repository interfaces.
+2024-08-12 18:52:27 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-08-12 18:52:27 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-08-12 18:52:27 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-12 18:52:27 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-08-12 18:52:27 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 270 ms
+2024-08-12 18:52:27 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-12 18:52:27 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-08-12 18:52:27 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-12 18:52:27 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Starting...
+2024-08-12 18:52:27 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-7 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7c4ba32f
+2024-08-12 18:52:27 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Start completed.
+2024-08-12 18:52:27 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-12 18:52:27 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-12 18:52:27 DEBUG c.m.m.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2024-08-12 18:52:27 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2024-08-12 18:52:27 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-12 18:52:28 WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/swagger-ui/**'], Ant [pattern='/swagger-ui/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-08-12 18:52:28 WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/v3/api-docs/**'], Ant [pattern='/v3/api-docs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2024-08-12 18:52:28 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-08-12 18:52:28 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-08-12 18:52:28 INFO  com.monocept.myapp.Application - Started Application in 0.78 seconds (process running for 687.381)
+2024-08-12 18:52:28 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-08-12 18:52:32 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-12 18:52:32 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-08-12 18:52:32 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-08-12 18:52:33 INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 219 ms
+2024-08-12 18:53:08 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id 
+    from
+        user u1_0 
+    where
+        u1_0.email=? 
+    limit
+        ?
+2024-08-12 18:53:08 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varish@gmail.com]
+2024-08-12 18:53:08 TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [1]
+2024-08-12 18:53:08 ERROR c.m.m.e.ContactResponseExceptionHandler - Error :staff cannot directly register contact the admin
+2024-08-12 18:53:08 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.monocept.myapp.exception.ContactApiException: staff cannot directly register contact the admin]
+2024-08-12 18:53:18 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id 
+    from
+        user u1_0 
+    where
+        u1_0.email=? 
+    limit
+        ?
+2024-08-12 18:53:18 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varish@gmail.com]
+2024-08-12 18:53:18 TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [1]
+2024-08-12 18:53:18 DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        user
+        (active, admin, email, first_name, last_name, password) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2024-08-12 18:53:18 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BOOLEAN) <- [true]
+2024-08-12 18:53:18 TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:BOOLEAN) <- [true]
+2024-08-12 18:53:18 TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:VARCHAR) <- [varish@gmail.com]
+2024-08-12 18:53:18 TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:VARCHAR) <- [varish]
+2024-08-12 18:53:18 TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:VARCHAR) <- [valleti]
+2024-08-12 18:53:18 TRACE org.hibernate.orm.jdbc.bind - binding parameter (6:VARCHAR) <- [$2a$10$gt3BZl6QdpNOsuYpw0XpMuwUWNY0Wx2RSnorWksM4Hp64Emc5ULKS]
+2024-08-12 18:55:07 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 18:55:07 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varish@gmail.com]
+2024-08-12 18:55:10 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 18:55:10 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varish@gmail.com]
+2024-08-12 18:55:49 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 18:55:49 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varish@gmail.com]
+2024-08-12 18:55:49 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 18:55:49 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varish@gmail.com]
+2024-08-12 18:55:49 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    order by
+        u1_0.user_id 
+    limit
+        ?, ?
+2024-08-12 18:55:49 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [0]
+2024-08-12 18:55:49 TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [5]
+2024-08-12 18:55:49 DEBUG org.hibernate.SQL - 
+    select
+        count(u1_0.user_id) 
+    from
+        user u1_0
+2024-08-12 18:56:38 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 18:56:38 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varish@gmail.com]
+2024-08-12 18:56:38 ERROR c.m.m.e.ContactResponseExceptionHandler - Error :JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name
+2024-08-12 18:56:38 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name]
+2024-08-12 18:56:45 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 18:56:45 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varish@gmail.com]
+2024-08-12 18:56:45 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id 
+    from
+        user u1_0 
+    where
+        u1_0.email is null 
+    limit
+        ?
+2024-08-12 18:56:45 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [1]
+2024-08-12 18:56:45 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 18:56:45 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varish@gmail.com]
+2024-08-12 18:56:45 DEBUG org.hibernate.SQL - 
+    update
+        user 
+    set
+        active=?,
+        admin=?,
+        email=?,
+        first_name=?,
+        last_name=?,
+        password=? 
+    where
+        user_id=?
+2024-08-12 18:56:45 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BOOLEAN) <- [true]
+2024-08-12 18:56:45 TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:BOOLEAN) <- [true]
+2024-08-12 18:56:45 TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:VARCHAR) <- [varish@gmail.com]
+2024-08-12 18:56:45 TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:VARCHAR) <- [Varish]
+2024-08-12 18:56:45 TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:VARCHAR) <- [valleti]
+2024-08-12 18:56:45 TRACE org.hibernate.orm.jdbc.bind - binding parameter (6:VARCHAR) <- [$2a$10$gt3BZl6QdpNOsuYpw0XpMuwUWNY0Wx2RSnorWksM4Hp64Emc5ULKS]
+2024-08-12 18:56:45 TRACE org.hibernate.orm.jdbc.bind - binding parameter (7:BIGINT) <- [15]
+2024-08-12 19:01:03 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:01:03 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varish@gmail.com]
+2024-08-12 19:01:03 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id 
+    from
+        user u1_0 
+    where
+        u1_0.email=? 
+    limit
+        ?
+2024-08-12 19:01:03 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [ajay@gmail.com]
+2024-08-12 19:01:03 TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [1]
+2024-08-12 19:01:03 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:01:03 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varish@gmail.com]
+2024-08-12 19:01:03 DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        user
+        (active, admin, email, first_name, last_name, password) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2024-08-12 19:01:03 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BOOLEAN) <- [true]
+2024-08-12 19:01:03 TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:BOOLEAN) <- [true]
+2024-08-12 19:01:03 TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:VARCHAR) <- [ajay@gmail.com]
+2024-08-12 19:01:03 TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:VARCHAR) <- [Ajay]
+2024-08-12 19:01:03 TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:VARCHAR) <- [kumar]
+2024-08-12 19:01:03 TRACE org.hibernate.orm.jdbc.bind - binding parameter (6:VARCHAR) <- [$2a$10$g0fGDsv.WkbWsXmgp82c5.ZQEoO3q8NrDTUNqmK8/Cw5wdf/OaZM6]
+2024-08-12 19:01:17 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:01:17 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varish@gmail.com]
+2024-08-12 19:01:17 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:01:17 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varish@gmail.com]
+2024-08-12 19:01:17 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.user_id=?
+2024-08-12 19:01:17 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [16]
+2024-08-12 19:01:31 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:01:31 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varish@gmail.com]
+2024-08-12 19:01:31 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:01:31 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varish@gmail.com]
+2024-08-12 19:01:31 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.user_id=?
+2024-08-12 19:01:31 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [16]
+2024-08-12 19:01:31 DEBUG org.hibernate.SQL - 
+    update
+        user 
+    set
+        active=?,
+        admin=?,
+        email=?,
+        first_name=?,
+        last_name=?,
+        password=? 
+    where
+        user_id=?
+2024-08-12 19:01:31 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BOOLEAN) <- [false]
+2024-08-12 19:01:31 TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:BOOLEAN) <- [true]
+2024-08-12 19:01:31 TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:VARCHAR) <- [ajay@gmail.com]
+2024-08-12 19:01:31 TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:VARCHAR) <- [Ajay]
+2024-08-12 19:01:31 TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:VARCHAR) <- [kumar]
+2024-08-12 19:01:31 TRACE org.hibernate.orm.jdbc.bind - binding parameter (6:VARCHAR) <- [$2a$10$g0fGDsv.WkbWsXmgp82c5.ZQEoO3q8NrDTUNqmK8/Cw5wdf/OaZM6]
+2024-08-12 19:01:31 TRACE org.hibernate.orm.jdbc.bind - binding parameter (7:BIGINT) <- [16]
+2024-08-12 19:02:45 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:02:45 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishk@gmail.com]
+2024-08-12 19:02:45 ERROR c.m.m.e.ContactResponseExceptionHandler - Error :Bad credentials
+2024-08-12 19:02:45 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.security.authentication.BadCredentialsException: Bad credentials]
+2024-08-12 19:02:57 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:02:57 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [arjunk@gmail.com]
+2024-08-12 19:03:20 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:03:20 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [arjunk@gmail.com]
+2024-08-12 19:03:20 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:03:20 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [arjunk@gmail.com]
+2024-08-12 19:03:20 ERROR c.m.m.e.ContactResponseExceptionHandler - Error :User is not active
+2024-08-12 19:03:20 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.monocept.myapp.exception.ContactApiException: User is not active]
+2024-08-12 19:03:42 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:03:42 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [arjunk@gmail.com]
+2024-08-12 19:03:42 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:03:42 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:04:03 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:04:03 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:04:03 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:04:03 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:04:03 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:04:03 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:04:03 DEBUG org.hibernate.SQL - 
+    select
+        c1_0.contact_id,
+        c1_0.active,
+        c1_0.first_name,
+        c1_0.last_name,
+        c1_0.user_id 
+    from
+        contact c1_0 
+    where
+        c1_0.user_id=? 
+    order by
+        c1_0.contact_id 
+    limit
+        ?
+2024-08-12 19:04:03 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [5]
+2024-08-12 19:04:03 TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [5]
+2024-08-12 19:04:03 DEBUG org.hibernate.SQL - 
+    select
+        count(c1_0.contact_id) 
+    from
+        contact c1_0 
+    where
+        c1_0.user_id=?
+2024-08-12 19:04:03 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [5]
+2024-08-12 19:05:14 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:05:14 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:05:14 ERROR c.m.m.e.ContactResponseExceptionHandler - Error :JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name
+2024-08-12 19:05:14 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name]
+2024-08-12 19:05:19 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:05:19 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:05:19 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:05:19 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:05:19 DEBUG org.hibernate.SQL - 
+    select
+        c1_0.contact_id,
+        c1_0.active,
+        c1_0.first_name,
+        c1_0.last_name,
+        c1_0.user_id 
+    from
+        contact c1_0 
+    where
+        c1_0.contact_id=?
+2024-08-12 19:05:19 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2024-08-12 19:05:19 DEBUG org.hibernate.SQL - 
+    update
+        contact 
+    set
+        active=?,
+        first_name=?,
+        last_name=?,
+        user_id=? 
+    where
+        contact_id=?
+2024-08-12 19:05:19 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BOOLEAN) <- [false]
+2024-08-12 19:05:19 TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:VARCHAR) <- [manoj]
+2024-08-12 19:05:19 TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:VARCHAR) <- [klvukur]
+2024-08-12 19:05:19 TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:BIGINT) <- [5]
+2024-08-12 19:05:19 TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:BIGINT) <- [1]
+2024-08-12 19:05:35 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:05:35 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:05:35 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:05:35 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:05:35 DEBUG org.hibernate.SQL - 
+    select
+        c1_0.contact_id,
+        c1_0.active,
+        c1_0.first_name,
+        c1_0.last_name,
+        c1_0.user_id 
+    from
+        contact c1_0 
+    where
+        c1_0.contact_id=?
+2024-08-12 19:05:35 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2024-08-12 19:05:35 DEBUG org.hibernate.SQL - 
+    update
+        contact 
+    set
+        active=?,
+        first_name=?,
+        last_name=?,
+        user_id=? 
+    where
+        contact_id=?
+2024-08-12 19:05:35 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BOOLEAN) <- [true]
+2024-08-12 19:05:35 TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:VARCHAR) <- [manoj]
+2024-08-12 19:05:35 TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:VARCHAR) <- [klvukur]
+2024-08-12 19:05:35 TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:BIGINT) <- [5]
+2024-08-12 19:05:35 TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:BIGINT) <- [1]
+2024-08-12 19:07:05 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:07:05 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:07:05 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:07:05 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:07:05 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:07:05 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:07:05 DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        contact
+        (active, first_name, last_name, user_id) 
+    values
+        (?, ?, ?, ?)
+2024-08-12 19:07:05 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BOOLEAN) <- [true]
+2024-08-12 19:07:05 TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:VARCHAR) <- [aditya]
+2024-08-12 19:07:05 TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:VARCHAR) <- [singh]
+2024-08-12 19:07:05 TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:BIGINT) <- [5]
+2024-08-12 19:08:46 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:08:46 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:08:46 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:08:46 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:08:46 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:08:46 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:08:46 DEBUG org.hibernate.SQL - 
+    select
+        c1_0.user_id,
+        c1_0.contact_id,
+        c1_0.active,
+        c1_0.first_name,
+        c1_0.last_name 
+    from
+        contact c1_0 
+    where
+        c1_0.user_id=?
+2024-08-12 19:08:46 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [5]
+2024-08-12 19:08:52 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:08:52 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:08:52 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:08:52 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:08:52 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:08:52 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:08:52 DEBUG org.hibernate.SQL - 
+    select
+        c1_0.user_id,
+        c1_0.contact_id,
+        c1_0.active,
+        c1_0.first_name,
+        c1_0.last_name 
+    from
+        contact c1_0 
+    where
+        c1_0.user_id=?
+2024-08-12 19:08:52 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [5]
+2024-08-12 19:08:52 ERROR c.m.m.e.ContactResponseExceptionHandler - Error :No contact with id 9 not found
+2024-08-12 19:08:52 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.monocept.myapp.exception.NoContactNotFoundException: No contact with id 9 not found]
+2024-08-12 19:09:05 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:09:05 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:09:05 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:09:05 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:09:05 DEBUG org.hibernate.SQL - 
+    select
+        c1_0.contact_id,
+        c1_0.active,
+        c1_0.first_name,
+        c1_0.last_name,
+        c1_0.user_id 
+    from
+        contact c1_0 
+    where
+        c1_0.contact_id=?
+2024-08-12 19:09:05 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [6]
+2024-08-12 19:09:05 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:09:05 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:09:05 DEBUG org.hibernate.SQL - 
+    select
+        c1_0.user_id,
+        c1_0.contact_id,
+        c1_0.active,
+        c1_0.first_name,
+        c1_0.last_name 
+    from
+        contact c1_0 
+    where
+        c1_0.user_id=?
+2024-08-12 19:09:05 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [5]
+2024-08-12 19:09:05 DEBUG org.hibernate.SQL - 
+    update
+        contact 
+    set
+        active=?,
+        first_name=?,
+        last_name=?,
+        user_id=? 
+    where
+        contact_id=?
+2024-08-12 19:09:05 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BOOLEAN) <- [false]
+2024-08-12 19:09:05 TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:VARCHAR) <- [aditya]
+2024-08-12 19:09:05 TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:VARCHAR) <- [singh]
+2024-08-12 19:09:05 TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:BIGINT) <- [5]
+2024-08-12 19:09:05 TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:BIGINT) <- [6]
+2024-08-12 19:09:40 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:09:40 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:09:40 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:09:40 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:09:40 DEBUG org.hibernate.SQL - 
+    select
+        c1_0.contact_id,
+        c1_0.active,
+        c1_0.first_name,
+        c1_0.last_name,
+        c1_0.user_id 
+    from
+        contact c1_0 
+    where
+        c1_0.contact_id=?
+2024-08-12 19:09:40 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2024-08-12 19:09:40 DEBUG org.hibernate.SQL - 
+    select
+        cd1_0.contact_details_id,
+        cd1_0.contact_id,
+        cd1_0.contact_type 
+    from
+        contact_detail cd1_0 
+    where
+        cd1_0.contact_id=? 
+    order by
+        cd1_0.contact_details_id 
+    limit
+        ?
+2024-08-12 19:09:40 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2024-08-12 19:09:40 TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:INTEGER) <- [5]
+2024-08-12 19:11:13 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:11:13 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:11:13 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:11:13 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:11:13 DEBUG org.hibernate.SQL - 
+    select
+        c1_0.contact_id,
+        c1_0.active,
+        c1_0.first_name,
+        c1_0.last_name,
+        c1_0.user_id 
+    from
+        contact c1_0 
+    where
+        c1_0.contact_id=?
+2024-08-12 19:11:13 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2024-08-12 19:11:13 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:11:13 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:11:13 DEBUG org.hibernate.SQL - 
+    select
+        c1_0.user_id,
+        c1_0.contact_id,
+        c1_0.active,
+        c1_0.first_name,
+        c1_0.last_name 
+    from
+        contact c1_0 
+    where
+        c1_0.user_id=?
+2024-08-12 19:11:13 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [5]
+2024-08-12 19:11:13 DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        contact_detail
+        (contact_id, contact_type) 
+    values
+        (?, ?)
+2024-08-12 19:11:13 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2024-08-12 19:11:13 TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:ENUM) <- [number]
+2024-08-12 19:12:01 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:12:01 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:12:01 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:12:01 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:12:01 DEBUG org.hibernate.SQL - 
+    select
+        c1_0.contact_id,
+        c1_0.active,
+        c1_0.first_name,
+        c1_0.last_name,
+        c1_0.user_id 
+    from
+        contact c1_0 
+    where
+        c1_0.contact_id=?
+2024-08-12 19:12:01 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2024-08-12 19:12:01 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:12:01 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:12:01 DEBUG org.hibernate.SQL - 
+    select
+        cd1_0.contact_details_id,
+        cd1_0.contact_id,
+        cd1_0.contact_type 
+    from
+        contact_detail cd1_0 
+    where
+        cd1_0.contact_details_id=?
+2024-08-12 19:12:01 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [7]
+2024-08-12 19:12:01 DEBUG org.hibernate.SQL - 
+    select
+        c1_0.user_id,
+        c1_0.contact_id,
+        c1_0.active,
+        c1_0.first_name,
+        c1_0.last_name 
+    from
+        contact c1_0 
+    where
+        c1_0.user_id=?
+2024-08-12 19:12:01 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [5]
+2024-08-12 19:12:01 DEBUG org.hibernate.SQL - 
+    select
+        cd1_0.contact_id,
+        cd1_0.contact_details_id,
+        cd1_0.contact_type 
+    from
+        contact_detail cd1_0 
+    where
+        cd1_0.contact_id=?
+2024-08-12 19:12:01 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2024-08-12 19:12:01 DEBUG org.hibernate.SQL - 
+    update
+        contact_detail 
+    set
+        contact_id=?,
+        contact_type=? 
+    where
+        contact_details_id=?
+2024-08-12 19:12:01 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2024-08-12 19:12:01 TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:ENUM) <- [number]
+2024-08-12 19:12:01 TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:BIGINT) <- [7]
+2024-08-12 19:12:23 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:12:23 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:12:23 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:12:23 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:12:23 DEBUG org.hibernate.SQL - 
+    select
+        c1_0.contact_id,
+        c1_0.active,
+        c1_0.first_name,
+        c1_0.last_name,
+        c1_0.user_id 
+    from
+        contact c1_0 
+    where
+        c1_0.contact_id=?
+2024-08-12 19:12:23 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2024-08-12 19:12:23 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:12:23 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:12:23 DEBUG org.hibernate.SQL - 
+    select
+        c1_0.user_id,
+        c1_0.contact_id,
+        c1_0.active,
+        c1_0.first_name,
+        c1_0.last_name 
+    from
+        contact c1_0 
+    where
+        c1_0.user_id=?
+2024-08-12 19:12:23 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [5]
+2024-08-12 19:12:23 DEBUG org.hibernate.SQL - 
+    select
+        cd1_0.contact_id,
+        cd1_0.contact_details_id,
+        cd1_0.contact_type 
+    from
+        contact_detail cd1_0 
+    where
+        cd1_0.contact_id=?
+2024-08-12 19:12:23 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2024-08-12 19:12:47 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:12:47 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:12:47 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:12:47 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:12:47 DEBUG org.hibernate.SQL - 
+    select
+        c1_0.contact_id,
+        c1_0.active,
+        c1_0.first_name,
+        c1_0.last_name,
+        c1_0.user_id 
+    from
+        contact c1_0 
+    where
+        c1_0.contact_id=?
+2024-08-12 19:12:47 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2024-08-12 19:12:47 DEBUG org.hibernate.SQL - 
+    select
+        u1_0.user_id,
+        u1_0.active,
+        u1_0.admin,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password 
+    from
+        user u1_0 
+    where
+        u1_0.email=?
+2024-08-12 19:12:47 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [varishvalleti@gmail.com]
+2024-08-12 19:12:47 DEBUG org.hibernate.SQL - 
+    select
+        c1_0.user_id,
+        c1_0.contact_id,
+        c1_0.active,
+        c1_0.first_name,
+        c1_0.last_name 
+    from
+        contact c1_0 
+    where
+        c1_0.user_id=?
+2024-08-12 19:12:47 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [5]
+2024-08-12 19:12:47 DEBUG org.hibernate.SQL - 
+    select
+        cd1_0.contact_id,
+        cd1_0.contact_details_id,
+        cd1_0.contact_type 
+    from
+        contact_detail cd1_0 
+    where
+        cd1_0.contact_id=?
+2024-08-12 19:12:47 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [1]
+2024-08-12 19:12:47 DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        contact_detail 
+    where
+        contact_details_id=?
+2024-08-12 19:12:47 TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:BIGINT) <- [11]
+2024-08-12 19:14:01 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-08-12 19:14:01 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-12 19:14:01 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Shutdown initiated...
+2024-08-12 19:14:01 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Shutdown completed.

@@ -23,13 +23,13 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("api/")
+@RequestMapping("api/users")
 @Tag(name = "User Management", description = "Endpoints for managing user operations by admin")
-public class AdminContoller {
+public class UserContoller {
 	@Autowired
 	private ContactApplicationService contactApplicationService;
 
-	@PostMapping("users")
+	@PostMapping
 	@Operation(summary = "Create a new user.", description = "Creates a new user with the provided details.", tags = {
 			"Users", "Create" })
 	public ResponseEntity<UserResponseDto> createUser(@Valid @RequestBody UserRequestDto userRequestDto) {
@@ -37,7 +37,7 @@ public class AdminContoller {
 				HttpStatus.CREATED);
 	}
 
-	@PutMapping("users")
+	@PutMapping
 	@Operation(summary = "Update an existing user.", description = "Updates the details of an existing user.", tags = {
 			"Users", "Update" })
 	public ResponseEntity<UserResponseDto> updateUser(@RequestBody UserRequestDto userRequestDto) {
@@ -46,7 +46,7 @@ public class AdminContoller {
 				HttpStatus.OK);
 	}
 
-	@GetMapping("users")
+	@GetMapping
 	@Operation(summary = "Retrieve all users.", description = "Fetches a paginated and sorted list of all users.", tags = {
 			"Users", "Get" })
 	public ResponseEntity<PagedResponse<UserResponseDto>> getAllUsers(
@@ -58,14 +58,14 @@ public class AdminContoller {
 				contactApplicationService.getAllUsers(page, size, sortBy, direction), HttpStatus.OK);
 	}
 
-	@GetMapping("users/{id}")
+	@GetMapping("{id}")
 	@Operation(summary = "Retrieve a user by ID.", description = "Fetches detailed information for a user based on their ID.", tags = {
 			"Users", "Get" })
 	public ResponseEntity<UserResponseDto> getUserById(@PathVariable(name = "id") long id) {
 		return new ResponseEntity<UserResponseDto>(contactApplicationService.getUserById(id), HttpStatus.OK);
 	}
 
-	@DeleteMapping("users/{id}")
+	@DeleteMapping("{id}")
 	@Operation(summary = "Delete a user by ID.", description = "Deletes a user with the specified ID.", tags = {
 			"Users", "Delete" })
 	public ResponseEntity<String> deleteUser(@PathVariable(name = "id") long id) {

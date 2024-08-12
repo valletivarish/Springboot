@@ -8,6 +8,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException.BadRequest;
 
 import com.monocept.myapp.dto.LoginDto;
 import com.monocept.myapp.dto.RegisterDto;
@@ -52,7 +53,9 @@ public class AuthServiceImpl implements AuthService {
         if (userRepository.existsByEmail(registerDto.getEmail())) {
             throw new ContactApiException(HttpStatus.BAD_REQUEST, "Email already exists!");
         }
-
+        if(!registerDto.isAdmin()) {
+        	throw new ContactApiException(HttpStatus.BAD_REQUEST, "staff cannot directly register contact the admin");
+        }
         User user = new User();
         user.setFirstName(registerDto.getFirstName());
         user.setLastName(registerDto.getLastName());
